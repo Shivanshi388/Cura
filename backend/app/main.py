@@ -9,8 +9,6 @@ app = FastAPI(
     version="1.0.0",
 )
 
-
-# Allow the deployed Vercel frontend and local development frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -22,7 +20,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 app.include_router(chat_router)
 
