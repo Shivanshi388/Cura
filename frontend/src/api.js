@@ -1,6 +1,6 @@
 // Frontend API client.
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_URL = "https://cura-0kt7.onrender.com";
 
 export async function sendMessage(customerId, message) {
   const response = await fetch(`${API_URL}/chat/`, {
