@@ -9,6 +9,16 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://https://cura-two-lyart.vercel.app/",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Allow the Vite frontend to communicate with FastAPI
 app.add_middleware(
     CORSMiddleware,
