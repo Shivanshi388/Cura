@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import Chat from "../components/Chat";
 import CustomerContext from "../components/CustomerContext";
 import AgentActivity from "../components/AgentActivity";
 
 function CustomerSupport() {
+  const [activeMenu, setActiveMenu] = useState("chat");
+  const [chatMessage, setChatMessage] = useState("");
+
+  const menuItems = [
+    {
+      id: "chat",
+      icon: "💬",
+      label: "Support Chat",
+      message: "",
+    },
+    {
+      id: "orders",
+      icon: "📦",
+      label: "Orders",
+      message: "Where is my latest order?",
+    },
+    {
+      id: "payments",
+      icon: "💳",
+      label: "Payments",
+      message: "Show me my payment information",
+    },
+    {
+      id: "tickets",
+      icon: "🎫",
+      label: "Tickets",
+      message: "Show me my support tickets",
+    },
+  ];
+
+  function handleMenuClick(item) {
+    setActiveMenu(item.id);
+    setChatMessage(item.message);
+  }
+
   return (
     <div className="cura-app">
       {/* Top Navigation */}
@@ -25,6 +60,7 @@ function CustomerSupport() {
 
       {/* Main Dashboard */}
       <main className="cura-dashboard">
+
         {/* Sidebar */}
         <aside className="cura-sidebar">
           <div className="sidebar-heading">
@@ -35,25 +71,19 @@ function CustomerSupport() {
           <CustomerContext />
 
           <div className="sidebar-menu">
-            <div className="menu-item active">
-              <span>💬</span>
-              Support Chat
-            </div>
-
-            <div className="menu-item">
-              <span>📦</span>
-              Orders
-            </div>
-
-            <div className="menu-item">
-              <span>💳</span>
-              Payments
-            </div>
-
-            <div className="menu-item">
-              <span>🎫</span>
-              Tickets
-            </div>
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`menu-item ${
+                  activeMenu === item.id ? "active" : ""
+                }`}
+                onClick={() => handleMenuClick(item)}
+              >
+                <span>{item.icon}</span>
+                {item.label}
+              </button>
+            ))}
           </div>
         </aside>
 
@@ -68,7 +98,7 @@ function CustomerSupport() {
             </div>
           </div>
 
-          <Chat />
+          <Chat initialMessage={chatMessage} />
         </section>
 
         {/* Activity Panel */}

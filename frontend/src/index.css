@@ -262,17 +262,24 @@ button {
 }
 
 .menu-item {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
 
   padding: 11px 12px;
 
+  border: none;
   border-radius: 10px;
+
+  background: transparent;
 
   color: #8b91a8;
 
   font-size: 13px;
+  text-align: left;
+
+  cursor: pointer;
 
   transition: all 0.2s ease;
 }
@@ -952,4 +959,90 @@ button {
   .message {
     max-width: 90%;
   }
+}
+
+/* Cura order response card */
+
+.order-card {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #dfe2ea;
+  color: #202436;
+}
+
+.order-card-title {
+  color: #202436;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-detail:last-child {
+  border-bottom: none;
+}
+
+.order-label {
+  color: #5b6275;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.order-value {
+  color: #202436;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.order-value.amount {
+  color: #202436;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.status-value {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #6b5200;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.order-finding,
+.order-action {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e7eb;
+  color: #303548;
+}
+
+.order-finding strong,
+.order-action strong {
+  color: #202436;
+  font-size: 12px;
+}
+
+.order-finding p,
+.order-action p {
+  margin: 5px 0 0;
+  color: #3f4658;
+  font-size: 13px;
+  line-height: 1.5;
 }
